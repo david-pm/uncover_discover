@@ -1,25 +1,25 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews', ['ui.router'])
+  angular.module('flapperNews', ['ui.router', 'templates'])
 
     .config(['$stateProvider', '$urlRouterProvider',
 
-      function($stateProvider, $urlRouterProvider) {
+    function($stateProvider, $urlRouterProvider) {
 
-        $stateProvider
-          .state('home', {
-            url: '/',
-            templateUrl: '/home.html',
-            controller: 'MainCtrl'
-          })
-          .state('posts', {
-            url: '/posts/{id}',
-            templateUrl: '/posts.html',
-            controller: 'PostsCtrl'
-          });
+    	$stateProvider
+    		.state('home', {
+    			url: '/home',
+    			templateUrl: 'home/_main.html',
+    			controller: 'MainCtrl'
+    		})
+    		.state('posts', {
+    			url: '/posts/{id}',
+    			templateUrl: 'posts/_posts.html',
+    			controller: 'PostsCtrl'
+    		});
 
-        $urlRouterProvider.otherwise('/');
-    }]);
+    		$urlRouterProvider.otherwise('home');
+   }]);
 
 }());
