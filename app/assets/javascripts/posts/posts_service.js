@@ -12,7 +12,8 @@
         get: get,
         create: create,
         upvote: upvote,
-        addComment: addComment
+        addComment: addComment,
+        upvoteComment: upvoteComment
       };
 
       function getAll() {
@@ -76,7 +77,7 @@
         var deferred = $q.defer();
 
         $http.post('/posts/' + id + '/comments.json', comment)
-        
+
         .then(function(response){
           if (response.data) {
             deferred.notify('Comment saved');
@@ -102,6 +103,23 @@
           console.warn('There was a problem: ' + response.statusText);
         });
       }
+
+      function upvoteComment(post, comment) {
+        $http({
+          method: 'put',
+          url: '/posts/' + post.id + '/comments/' +
+                comment.id + '/upvote.json'
+        })
+        .then(function(response){
+          if (response) {
+            comment.upvotes++;
+          }
+        }).catch(function(response) {
+          console.warn('There was a problem: ' + response.statusText);
+        });
+      }
+
+
 
 
     }]);

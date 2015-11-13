@@ -8,6 +8,8 @@
       function($scope, $stateParams, posts){
         // scope variables
         $scope.addComment = addComment;
+        $scope.incrementUpvotes = incrementUpvotes;
+
 
         posts.get($stateParams.id)
           .then(function(data){
@@ -41,6 +43,10 @@
             console.log(response);
           });
           $scope.body = '';
+        }
+
+        function incrementUpvotes(comment) {
+          posts.upvoteComment($scope.post, comment);
         }
 
     }]);
