@@ -7,17 +7,38 @@
 
       function($scope, $stateParams, posts){
         // scope variables
-        $scope.post = posts.postCollection[$stateParams.id];
-
         $scope.addComment = addComment;
+
+        posts.get($stateParams.id)
+          .then(function(data){
+            console.log(data);
+            $scope.post = data;
+          }
+          , null, function(notify) {
+            console.log(notify);
+          })
+          .catch(function(errorPayLoad) {
+            console.log(errorPayLoad);
+          })
+          .finally(
+            function() {
+              console.log("Its all over, Carlos");
+            }
+          );
+
 
         // scope funcitons
         function addComment() {
           if($scope.body === '') { return; }
-          $scope.post.comments.push({
+          posts.addComment($scope.post.id, {
             body: $scope.body,
             author: 'user',
-            upvotes: 0
+          })
+          .then(function(data){
+            $scope.post.comments.push(data)
+          })
+          .catch(function(response) {
+            console.log(response);
           });
           $scope.body = '';
         }

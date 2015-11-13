@@ -6,9 +6,13 @@
 
     function($http, $q) {
 
+      // API
       return {
         getAll: getAll,
-        create: create
+        get: get,
+        create: create,
+        upvote: upvote,
+        addComment: addComment
       };
 
       function getAll() {
@@ -20,7 +24,26 @@
         })
         .then(function(response){
           if (response.data) {
-            deferred.notify('DATA retrieved');
+            deferred.notify('Post retrieved');
+            deferred.resolve(response.data);
+          }
+        }).catch(function(response) {
+          deferred.reject(response.status + ' : ' + response.statusText);
+        });
+
+        return deferred.promise;
+      }
+
+      function get(id) {
+        var deferred = $q.defer();
+
+        $http({
+          method: 'get',
+          url: '/posts/' + id + '.json'
+        })
+        .then(function(response){
+          if (response.data) {
+            deferred.notify('All posts retrieved');
             deferred.resolve(response.data);
           }
         }).catch(function(response) {
@@ -39,7 +62,7 @@
         })
         .then(function(response){
           if (response.data) {
-            deferred.notify('DATA saved');
+            deferred.notify('Post saved');
             deferred.resolve(response.data);
           }
         }).catch(function(response) {
@@ -47,6 +70,37 @@
         });
 
         return deferred.promise;
+      }
+
+      function addComment(id, comment) {
+        var deferred = $q.defer();
+
+        $http.post('/posts/' + id + '/comments.json', comment)
+        
+        .then(function(response){
+          if (response.data) {
+            deferred.notify('Comment saved');
+            deferred.resolve(response.data);
+          }
+        }).catch(function(response) {
+          deferred.reject(response.status + ' : ' + response.statusText);
+        });
+
+        return deferred.promise;
+      }
+
+      function upvote(post) {
+        $http({
+          method: 'put',
+          url: '/posts/' + post.id + '/upvote.json'
+        })
+        .then(function(response){
+          if (response) {
+            post.upvotes++;
+          }
+        }).catch(function(response) {
+          console.warn('There was a problem: ' + response.statusText);
+        });
       }
 
 

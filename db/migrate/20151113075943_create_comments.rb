@@ -1,8 +1,7 @@
-class CreateCommentts < ActiveRecord::Migration
+class CreateComments < ActiveRecord::Migration
   def change
-    create_table :commentts do |t|
-      t.string :title
-      t.string :link
+    create_table :comments do |t|
+      t.string :body
       t.integer :upvotes
       t.references :post, index: true, foreign_key: true
 
