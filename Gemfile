@@ -23,3 +23,9 @@ end
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+  gem 'pg'
+end
