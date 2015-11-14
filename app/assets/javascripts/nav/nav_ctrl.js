@@ -1,13 +1,13 @@
 (function() {
   'use strict';
-  angular.module('flapperNews')
+  angular.module('UncoverDiscover')
 
   .controller('NavCtrl', ['$scope','Auth',
   function($scope, Auth){
     // scope vars
     $scope.signedIn = Auth.isAuthenticated;
     $scope.logout = Auth.logout;
-    
+
     Auth.currentUser().then(function (user){
       $scope.user = user;
     });

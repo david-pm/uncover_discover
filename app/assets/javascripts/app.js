@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
+  angular.module('UncoverDiscover', ['ui.router', 'templates', 'Devise'])
 
     .config(['$stateProvider', '$urlRouterProvider', 'AuthProvider',
 

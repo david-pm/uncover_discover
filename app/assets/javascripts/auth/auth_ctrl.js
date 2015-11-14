@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('flapperNews')
+  angular.module('UncoverDiscover')
 
   .controller('AuthCtrl', ['$scope','$state','Auth',
   function($scope, $state, Auth){

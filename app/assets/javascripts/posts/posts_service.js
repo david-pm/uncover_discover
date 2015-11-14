@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews')
+  angular.module('UncoverDiscover')
          .factory('posts', ['$http', '$q',
 
     function($http, $q) {

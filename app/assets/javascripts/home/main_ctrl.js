@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews')
+  angular.module('UncoverDiscover')
 
     .controller('MainCtrl', [ '$scope', 'posts', function($scope, posts){
         // scope variables

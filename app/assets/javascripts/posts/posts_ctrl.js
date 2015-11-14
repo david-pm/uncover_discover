@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews')
+  angular.module('UncoverDiscover')
 
     .controller('PostsCtrl', ['$scope','$stateParams','posts',
 
