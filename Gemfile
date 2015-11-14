@@ -5,7 +5,6 @@ ruby '2.2.2'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
-
 gem 'devise', '~> 3.5.0'
 gem 'angular_rails_csrf'
 gem 'responders'
