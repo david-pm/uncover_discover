@@ -14,5 +14,19 @@
  *= require_tree .
  */
 
- .glyphicon-thumbs-up { cursor:pointer }
- .btn.btn-primary { background: navy; }
+  html, body {
+    background: rgb(210, 255, 52);
+    font-family: monospace !important;
+  }
+  h2 {
+    color: #FF2E52;
+  }
+  hr, .page-header { border-color: navy;}
+  .nav > li > a:hover, .nav > li > a:focus {
+    background: #FF2E52;
+    color: #eee;
+  }
+  .glyphicon-thumbs-up { cursor:pointer }
+  .btn { border: 0; border-radius: 0; }
+  .btn.btn-primary { background: #FF2E52; }
+  a { color: navy; }

@@ -6,14 +6,13 @@
       <span ng-hide="post.link">
         {{post.title}}
       </span>
-      {{comment.upvotes}} - by {{comment.user.username}}
     </h3>
   </div>
 
   <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
     <span class="glyphicon glyphicon-thumbs-up"
       ng-click="incrementUpvotes(comment)"></span>
-    {{comment.upvotes}} - by {{comment.author}}
+    {{comment.upvotes}} - by {{comment.user.username}}
     <span style="font-size:20px; margin-left:10px;">
       {{comment.body}}
     </span>
@@ -23,8 +22,10 @@
     <h3>Add a new comment</h3>
 
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Comment"
-       ng-model="body"></input>
+      <p>
+        <input type="text" placeholder="Comment"
+         ng-model="body"></input>
+      </p>
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
   </form>
