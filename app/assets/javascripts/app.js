@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('flapperNews', ['ui.router', 'templates'])
+  angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
 
-    .config(['$stateProvider', '$urlRouterProvider',
+    .config(['$stateProvider', '$urlRouterProvider', 'AuthProvider',
 
-    function($stateProvider, $urlRouterProvider) {
+    function($stateProvider, $urlRouterProvider, AuthProvider) {
 
     	$stateProvider
     		.state('home', {

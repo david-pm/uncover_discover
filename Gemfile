@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'devise', '~> 3.4.0'
+gem 'devise', '~> 3.5.0'
 gem 'angular_rails_csrf'
 gem 'responders'
 gem 'angular-rails-templates'
@@ -18,4 +18,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
 end
