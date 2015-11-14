@@ -1,3 +1,6 @@
 == Uncover/Discover
 
 This is a basic reddit-style app built on Rails with an Angular frontend
+
+Mostly follows the steps in this tutorial: 
+https://thinkster.io/angular-rails#introduction
